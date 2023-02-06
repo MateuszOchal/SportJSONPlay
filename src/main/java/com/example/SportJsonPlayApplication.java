@@ -7,9 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SportJsonPlayApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(SportJsonPlayApplication.class, args);
-        SportEventService sportEventService = new SportEventService();
-        System.out.println(sportEventService.tenEventsWithHighestProbableOutcome());
+        Menu menu = new Menu();
+        Thread.sleep(1000);
+        menu.showMenu();
     }
 }

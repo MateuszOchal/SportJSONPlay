@@ -128,5 +128,16 @@ public class SportEventService {
         }
         return list1;
     }
+
+    public List<SportEvent> eventsWithHighestProbableOutcomeParametrized(int numberOfGamesToShow) {
+        List<SportEvent> list = showAllEvents();
+        Collections.sort(list);
+        List<SportEvent> list1 = new ArrayList<>();
+        for (int i = 0; i < numberOfGamesToShow; i++) {
+            list1.add(list.get(i));
+            if(i+1==list.size()) break;
+        }
+        return list1;
+    }
 }
 
