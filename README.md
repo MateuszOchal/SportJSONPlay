@@ -1,6 +1,7 @@
 ﻿# Sport JSON Play
 App is runnable both in console and through HTTP endpoints. 
 Console use utilizes switch to let user choose action to perform and prints to console.
+
 HTTP use -> 
 Run app and then use in browser : 
 
