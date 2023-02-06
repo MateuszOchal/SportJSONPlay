@@ -27,14 +27,14 @@ private double highestProbableValue;
     @Override
     public String toString() {
         return "\n" +
-                "Start date='" + startDate  +", "+
+                "Start date: " + startDate  +", "+
                   homeCompetitorName +"("+
                 homeCompetitorCountry +") vs. " +
                  awayCompetitorName  +"("
                 + awayCompetitorCountry +")"+
                 ", Venue: " + venueName +
-                ", Highest probable result=" + highestProbableResult +
-                "(" + highestProbableValue +")";
+                ", Highest probable result: " + highestProbableResult +
+                " (" + highestProbableValue +")";
 
     }
 }

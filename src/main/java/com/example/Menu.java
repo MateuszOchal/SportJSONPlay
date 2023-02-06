@@ -2,6 +2,9 @@ package com.example;
 
 import com.example.games.SportEvent;
 import com.example.games.SportEventService;
+import com.example.teams.Competitor;
+import com.example.teams.CompetitorController;
+import com.example.teams.CompetitorService;
 
 
 import java.util.List;
@@ -11,6 +14,7 @@ import static java.lang.Integer.parseInt;
 
 public class Menu {
     SportEventService sportEventService = new SportEventService();
+    CompetitorService competitorService = new CompetitorService(sportEventService);
     Scanner sc = new Scanner(System.in);
 
     public void showMenu() {
@@ -23,11 +27,13 @@ public class Menu {
             System.out.println("2: Show all matches for this season sorted by most probable result");
             System.out.println("3: Show ten matches for this season sorted by most probable result");
             System.out.println("4: Show parametrized number of matches for this season sorted by most probable result");
+            System.out.println("5: Show teams for this season");
+            System.out.println("6: Show teams for this season sorted alphabetically");
             System.out.println("0: Exit");
             menuInput = sc.nextLine();
 
 
-            while (!menuInput.matches("[0-4]")) {
+            while (!menuInput.matches("[0-6]")) {
                 System.out.println("There is no such action, please choose a number from the menu");
                 menuInput = sc.nextLine();
             }
@@ -38,34 +44,34 @@ public class Menu {
 
     public void switchMenu(int menuInput) {
 
+
         switch (menuInput) {
             case 1 -> {
                 List<SportEvent> sportEventsList =
                         sportEventService.showAllEvents();
-                for (int i = 0; i < sportEventsList.size(); i++) {
-                    SportEvent sp = sportEventsList.get(i);
+                for (SportEvent sp : sportEventsList) {
                     System.out.println(sp);
                 }
             }
             case 2 -> {
                 List<SportEvent> sportEventsList =
                         sportEventService.eventsSortedByProbableOutcomeValue();
-                for (int i = 0; i < sportEventsList.size(); i++) {
-                    System.out.println(sportEventsList.get(i));
+                for (SportEvent sportEvent : sportEventsList) {
+                    System.out.println(sportEvent);
                 }
             }
             case 3 -> {
                 List<SportEvent> sportEventsList =
                         sportEventService.tenEventsWithHighestProbableOutcome();
-                for (int i = 0; i < sportEventsList.size(); i++) {
-                    System.out.println(sportEventsList.get(i));
+                for (SportEvent sportEvent : sportEventsList) {
+                    System.out.println(sportEvent);
                 }
             }
             case 4 -> {
                 System.out.println("Enter number of sorted matches to show");
                 String numberOfMatches = sc.nextLine();
                 while (!numberOfMatches.matches("[0-9]?[0-9]+")) {
-                    System.out.println("please enter a number in range 1-1E6");
+                    System.out.println("please enter a number in range 0-1E6");
                     numberOfMatches = sc.nextLine();
                 }
                 for (int i = 0; i < numberOfMatches.length(); i++) {
@@ -77,6 +83,18 @@ public class Menu {
                         sportEventService.eventsWithHighestProbableOutcomeParametrized(Integer.parseInt(numberOfMatches));
                 for (SportEvent se : sportEventList) {
                     System.out.println(se);
+                }
+            }
+            case 5-> {List<Competitor>competitorList =
+                    competitorService.getAllCompetitors();
+                for (Competitor competitor : competitorList) {
+                    System.out.println(competitor);
+                }
+            }
+            case 6 -> {List<Competitor>competitorList =
+                    competitorService.getAllCompetitorsAlphabetically();
+                for (Competitor competitor : competitorList) {
+                    System.out.println(competitor);
                 }
             }
             case 0 -> {
