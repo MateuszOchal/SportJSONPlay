@@ -108,5 +108,25 @@ public class SportEventService {
         sportEvent.setHighestProbableResult(highestProbableResult);
     }
 
+    public List<SportEvent>showAllEvents(){
+        List<SportEvent>allEvents = getValuableDataFromJSONAsAList();
+        return allEvents;
+    }
+
+    public List<SportEvent> eventsSortedByProbableOutcomeValue() {
+        List<SportEvent> list = showAllEvents();
+        Collections.sort(list);
+        return list;
+    }
+
+    public List<SportEvent> tenEventsWithHighestProbableOutcome() {
+        List<SportEvent> list = eventsSortedByProbableOutcomeValue();
+        List<SportEvent> list1 = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list1.add(list.get(i));
+            if(i+1==list.size()) break;
+        }
+        return list1;
+    }
 }
 
