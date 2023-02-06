@@ -12,4 +12,21 @@ import java.util.List;
 @RequestMapping
 @RequiredArgsConstructor
 public class SportEventController {
+    private final SportEventService sportEventService;
+    @GetMapping("/allEvents")
+    public List<SportEvent> getAllEvents() {
+        return sportEventService.getValuableDataFromJSONAsAList();
+    }
+    @GetMapping("/allEventsSorted")
+    public List<SportEvent> getAllEventsSorted() {
+        return sportEventService.eventsSortedByProbableOutcomeValue();
+    }
+    @GetMapping("/topTen")
+    public List<SportEvent>getTenMostProbableResults(){
+        return sportEventService.tenEventsWithHighestProbableOutcome();
+    }
+    @GetMapping("/top/{i}")
+    public List<SportEvent>getTenMostProbableResults(@PathVariable int i){
+        return sportEventService.eventsWithHighestProbableOutcomeParametrized(i);
+    }
 }

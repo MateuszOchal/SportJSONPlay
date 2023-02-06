@@ -11,4 +11,13 @@ import java.util.List;
 @RequestMapping
 @RequiredArgsConstructor
 public class CompetitorController {
+    private final CompetitorService competitorService;
+    @GetMapping("/teams")
+    public List<Competitor>getAllCompetitors(){
+        return competitorService.getAllCompetitors();
+    }
+    @GetMapping("/teamsSorted")
+    public List<Competitor>getAllCompetitorsAlphabetically(){
+        return competitorService.getAllCompetitorsAlphabetically();
+    }
 }

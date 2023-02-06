@@ -23,12 +23,12 @@ public class Menu {
         do {
             System.out.println("\n");
             System.out.println("What would You like to do");
-            System.out.println("1: Show all matches for this season ");
-            System.out.println("2: Show all matches for this season sorted by most probable result");
-            System.out.println("3: Show ten matches for this season sorted by most probable result");
-            System.out.println("4: Show parametrized number of matches for this season sorted by most probable result");
-            System.out.println("5: Show teams for this season");
-            System.out.println("6: Show teams for this season sorted alphabetically");
+            System.out.println("1: Show all matches for this season " + "or show in browser -> http://localhost:8080/allEvents");
+            System.out.println("2: Show all matches for this season sorted by most probable result" + "or show in browser -> http://localhost:8080/allEventsSorted");
+            System.out.println("3: Show ten matches for this season sorted by most probable result" + "or show in browser -> http://localhost:8080/topTen");
+            System.out.println("4: Select to pick number to show parametrized number of matches for this season sorted by most probable result (result available to show in browser after selecting number of matches to show)");
+            System.out.println("5: Show teams for this season" + "or show in browser -> http://localhost:8080/teams");
+            System.out.println("6: Show teams for this season sorted alphabetically" + "or show in browser -> http://localhost:8080/teamsSorted");
             System.out.println("0: Exit");
             menuInput = sc.nextLine();
 
@@ -84,6 +84,7 @@ public class Menu {
                 for (SportEvent se : sportEventList) {
                     System.out.println(se);
                 }
+                System.out.println("Show in browser -> http://localhost:8080/top/"+numberOfMatches);
             }
             case 5-> {List<Competitor>competitorList =
                     competitorService.getAllCompetitors();
