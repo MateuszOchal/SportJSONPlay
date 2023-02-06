@@ -3,19 +3,23 @@ package com.example;
 import com.example.games.SportEvent;
 import com.example.games.SportEventService;
 import com.example.teams.Competitor;
-import com.example.teams.CompetitorController;
 import com.example.teams.CompetitorService;
+import lombok.RequiredArgsConstructor;
 
 
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
-
 public class Menu {
+
     SportEventService sportEventService = new SportEventService();
     CompetitorService competitorService = new CompetitorService(sportEventService);
     Scanner sc = new Scanner(System.in);
+
+    public Menu() {
+
+    }
 
     public void showMenu() {
 

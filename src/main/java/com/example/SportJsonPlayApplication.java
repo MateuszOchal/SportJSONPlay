@@ -1,10 +1,12 @@
 package com.example;
 
-import com.example.games.SportEventService;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@RequiredArgsConstructor
 public class SportJsonPlayApplication {
 
     public static void main(String[] args) throws InterruptedException {
