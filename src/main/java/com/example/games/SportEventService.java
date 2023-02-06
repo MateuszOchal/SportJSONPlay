@@ -77,16 +77,17 @@ public class SportEventService {
             sportEvent.setAwayCompetitorName(awayCompName);
             sportEvent.setAwayCompetitorCountry(awayCompCountry);
             sportEvent.setVenueName(venueName);
-            setHighestProbableResult(sportEvent, homeTeamWin, draw, awayTeamWin);
-            setHighestProbableOutcomeOfEvent(sportEvent, homeTeamWin,
+            setHighestProbableResult(sportEvent, homeTeamWin,
+                    draw, awayTeamWin);
+            setHighestProbableValue(sportEvent, homeTeamWin,
                     draw, awayTeamWin);
             sportEvents.add(sportEvent);
         }
         return sportEvents;
     }
 
-    public void setHighestProbableOutcomeOfEvent(SportEvent sportEvent, double homeWin,
-                                                 double draw, double awayWin) {
+    public void setHighestProbableValue(SportEvent sportEvent, double homeWin,
+                                        double draw, double awayWin) {
         double outcome;
 
         if (homeWin > awayWin && homeWin > draw) {
