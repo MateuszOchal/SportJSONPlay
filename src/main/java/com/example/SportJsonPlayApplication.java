@@ -9,6 +9,7 @@ public class SportJsonPlayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SportJsonPlayApplication.class, args);
-
+        SportEventService sportEventService = new SportEventService();
+        System.out.println(sportEventService.tenEventsWithHighestProbableOutcome());
     }
 }
