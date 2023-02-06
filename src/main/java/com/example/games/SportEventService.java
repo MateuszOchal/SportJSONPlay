@@ -107,5 +107,6 @@ public class SportEventService {
         } else highestProbableResult = HighestProbableResult.AWAY_TEAM_WIN;
         sportEvent.setHighestProbableResult(highestProbableResult);
     }
+
 }
 
